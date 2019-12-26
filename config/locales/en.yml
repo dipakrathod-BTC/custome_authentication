@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  mailers:
+    confirm_your_account: "You can confirm your account email through the link below:"
+    password_changed_notify: "We're contacting you to notify you that your password has been changed."
+    reset_password_instruction: "Someone has requested a link to change your password. You can do this through the link below."
+    ignore_if_did_not_request: "If you didn't request this, please ignore this email."
+    access_above_link: "Your password won't change until you access the link above and create a new one."

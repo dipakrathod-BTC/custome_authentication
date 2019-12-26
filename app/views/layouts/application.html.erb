@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'login100-form-btn logout100-btn') %>        
+      </li>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

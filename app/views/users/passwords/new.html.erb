@@ -1,0 +1,25 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+      <span class="login100-form-title p-b-33">
+        Forgot your password?
+      </span>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: 'login100-form', html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field wrap-input100 rs1 validate-input">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "input100" %>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>
+
+        <div class="actions wrap-input100 rs1 validate-input">
+          <%= f.submit "Send me reset password instructions", class: 'login100-form-btn' %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

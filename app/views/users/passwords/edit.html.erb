@@ -1,0 +1,35 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+      <span class="login100-form-title p-b-33">
+        Change your password
+      </span>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, class: 'login100-form') do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="field wrap-input100">
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", class: 'input100' %>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+        </div>
+
+        <div class="field wrap-input100">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm New Password", class: 'input100' %>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>
+
+        <div class="actions wrap-input100">
+          <%= f.submit "Change my password", class: 'login100-form-btn' %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>
