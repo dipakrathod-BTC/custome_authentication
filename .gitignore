@@ -32,3 +32,4 @@ yarn-debug.log*
 
 # Ignore Database configurations
 config/database.yml
+/config/credentials/production.key
