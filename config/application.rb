@@ -18,7 +18,6 @@ module CustomeAuthentication
 
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
-    binding.pry
     if Rails.env.development?
       config.action_mailer.smtp_settings = {
         address: 'smtp.gmail.com',
