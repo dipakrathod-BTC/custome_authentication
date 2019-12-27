@@ -18,15 +18,29 @@ module CustomeAuthentication
 
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
+    binding.pry
+    if Rails.env.development?
+      config.action_mailer.smtp_settings = {
+        address: 'smtp.gmail.com',
+        port: 587,
+        domain: Rails.application.credentials.mailer_settings[:domain],
+        user_name: Rails.application.credentials.mailer_settings[:email],
+        password: Rails.application.credentials.mailer_settings[:password],
+        authentication: :plain,
+        enable_starttls_auto: true
+      }
+    end
 
-    config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: Rails.application.credentials.mailer_settings[:domain],
-      user_name: Rails.application.credentials.mailer_settings[:email],
-      password: Rails.application.credentials.mailer_settings[:password],
-      authentication: :plain,
-      enable_starttls_auto: true
-    }
+    if Rails.env.production?
+      config.action_mailer.smtp_settings = {
+        address: 'smtp.gmail.com',
+        port: 587,
+        domain: ENV['MAIL_DOMAIN'],
+        user_name: ENV['USEREMAIL'],
+        password: ENV['PASSWORD'],
+        authentication: :plain,
+        enable_starttls_auto: true
+      }
+    end
   end
 end
